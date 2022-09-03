@@ -1,7 +1,7 @@
 # Tool for Integration Testing NestJS using Mongodb Replica Set 
 
 ## Background
-Backend services built on top of [NestJS framework](https://nestjs.com/) is able to utillize the test framework [Jest](https://docs.nestjs.com/fundamentals/testing). NestJS and Jest come up with solutions to develop unit tests and end-to-end tests. While both are necessary, they are out of scope of this document. Here we present a documentation for integration tests, which is where the tests are run against a service integrated with its dependencies, e.g. database, cloud features, etc.
+Backend services built on top of [NestJS framework](https://nestjs.com/) is able to utilize the test framework [Jest](https://docs.nestjs.com/fundamentals/testing). NestJS and Jest come up with solutions to develop unit tests and end-to-end tests. While both are necessary, they are out of scope of this document. Here we present a documentation for integration tests, which is where the tests are run against a service integrated with its dependencies, e.g. database, cloud features, etc.
 
 ### Situation
 Previously tests in my project were done manually by QA or Product Ops. For simple cases, this practice is enough. However, the project is growing and now has advance features for business process. Advance features are hard to be tested by detail in manual test, because it is exhausting and prone to human error. Furthermore, QA or Product Ops are handed with other daily tasks that takes time.
@@ -128,7 +128,7 @@ services:
   #     - ./mongo/data_rs3/configdb:/data/configdb
 ```
 
-3. Npm scripts for pretest, test, and postest in `package.json`.
+3. Npm scripts for pretest, test, and posttest in `package.json`.
 ```json
 {
   "scripts": {
