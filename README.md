@@ -162,12 +162,12 @@ services:
 }
 ```
 
-4. `.env` file placed at the root of the project containing the `DB_URI_TEST`
+5. `.env` file placed at the root of the project containing the `DB_URI_TEST`
 ```.env
 DB_URI_TEST=mongodb://localhost:27017/db-test?readPreference=primary&directConnection=true
 ```
 
-5. Create test cases inside file name with pattern `<any case>.integration.spec.ts` in test directory. For example:
+6. Create test cases inside file name with pattern `<any case>.integration.spec.ts` in test directory. For example:
 ```
 test/order.integration.spec.ts
 test/product.integration.spec.ts
