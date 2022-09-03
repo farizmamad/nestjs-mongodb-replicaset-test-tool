@@ -168,5 +168,5 @@ test/product.integration.spec.ts
 3. Npm will first run pretest script.
 4. Wait the tests until it stops.
 5. The test is done.
-5.a if tests are passed, npm will run posttest script.
-5.b. else, test will be stopped without running the posttest. It allows us to fix the bug and then rerun the test command.
+- if tests are passed, npm will run posttest script.
+- else, test will be stopped without running the posttest. It allows us to fix the bug and then rerun the test command.
