@@ -162,10 +162,62 @@ services:
 }
 ```
 
-4. Create test cases inside file name with pattern `<any case>.integration.spec.ts` in test directory. For example:
+4. `.env` file placed at the root of the project containing the `DB_URI_TEST`
+```.env
+DB_URI_TEST=mongodb://localhost:27017/db-test?readPreference=primary&directConnection=true
+```
+
+5. Create test cases inside file name with pattern `<any case>.integration.spec.ts` in test directory. For example:
 ```
 test/order.integration.spec.ts
 test/product.integration.spec.ts
+```
+Make sure to connect to the primary host before all test cases.
+```typescript
+import { INestApplication } from '@nestjs/common';
+import { Test, TestingModule } from '@nestjs/testing';
+import { connection, Connection, Types } from 'mongoose';
+import { SomethingController } from 'src/something/something.controller';
+import { AppModule } from '../src/app.module';
+
+describe('SomethingController', () => {
+  let app: INestApplication;
+  let dbConnection: Connection;
+  let contoller: SomethingController;
+  
+  beforeAll(async () => {
+    const moduleRef: TestingModule = await Test.createTestingModule({
+      imports: [
+        AppModule,
+      ],
+    }).compile();
+
+    app = await moduleRef.createNestApplication();
+    await app.init();
+
+    console.log('app initated!');
+
+    controller = app.get<SomethingController>(SomethingController);
+
+    // connect to mongodb database primary host of the replica set
+    const configService: ConfigService = app.get(ConfigService);
+    if (!configService.get('DB_URI_TEST')) {
+      throw new Error(`Must define env var "DB_URI_TEST"`);
+    }
+    await connect(configService.get('DB_URI_TEST'));
+  }, 50000);
+  
+  afterAll(async () => {
+    await dbConnection.close();
+    await app.close();
+  }, 20000);
+  
+  describe('anyMethodToBeTested', () => {
+    it('should do something successfully', () => {
+      // put the actual and expectation here 
+    });
+  });
+})
 ```
 
 ### Steps to run the tests
