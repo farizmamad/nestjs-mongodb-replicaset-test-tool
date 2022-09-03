@@ -1,5 +1,11 @@
 # Tool for Integration Testing NestJS using Mongodb Replica Set 
 
+[![Mongoose](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://github.com/Automattic/mongoose)
+![stars](https://img.shields.io/github/stars/Automattic/mongoose?style=social)
+
+[![NestJs](https://img.shields.io/badge/nestjs-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)](https://github.com/nestjs/nest)
+![stars](https://img.shields.io/github/stars/nestjs/nest?style=social)
+
 ## Background
 Backend services built on top of [NestJS framework](https://nestjs.com/) is able to utilize the test framework [Jest](https://docs.nestjs.com/fundamentals/testing). NestJS and Jest come up with solutions to develop unit tests and end-to-end tests. While both are necessary, they are out of scope of this document. Here we present a documentation for integration tests, which is where the tests are run against a service integrated with its dependencies, e.g. database, cloud features, etc.
 
